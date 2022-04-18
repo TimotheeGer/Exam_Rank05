@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 14:20:31 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/15 19:40:10 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/18 14:42:40 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,7 @@ Warlock::Warlock(std::string name, std::string title) : name(name), title(title)
 Warlock::Warlock(Warlock const &src) { *this = src; }
 
 Warlock::~Warlock(void) {
-    
-    std::vector<ASpell*>::iterator itb = item.begin();
-    std::vector<ASpell*>::iterator ite = item.end();
 
-    while (itb != ite)
-    {
-        delete *itb;
-        ++itb;
-    }
-
-    this->item.clear();
     std::cout << this->name << ": My job here is done!" << std::endl;
 }
 
@@ -80,38 +70,21 @@ void Warlock::introduce(void) const {
 
 void Warlock::learnSpell(ASpell* spell) {
     
-    if (spell)
-        item.push_back(spell);
+    this->book.learnSpell(spell);
+    return ;
 }
 
 void Warlock::forgetSpell(std::string spell) {
-
-    // std::vector<ASpell>::iterator itb = item.begin();
-    // std::vector<ASpell>::iterator ite = item.end();
     
-    // for (unsigned long i = 0; i < item.size(); i++)
-    //     std::cout << "item[ " << i << " ] = " << item[i]->getName() << std::endl;  
-    
-    for (unsigned long i = 0; i < item.size(); i++)
-    {
-        if (item[i]->getName() == spell)
-            item.erase(item.begin() + i);
-        break ;
-    }
-    
-    // for (unsigned long i = 0; i < item.size(); i++)
-    //     std::cout << "item[ " << i << " ] = " << item[i]->getName() << std::endl;  
-
+    this->book.forgetSpell(spell);
     return ;
 }
 
 void Warlock::launchSpell(std::string spell, ATarget& target) {
     
-    for (unsigned long i = 0; i < item.size(); i++)
-    {
-        if (item[i]->getName() == spell)
-            item[i]->launch(target); 
-        break ;
-    }   
+    ASpell *spell_ptr = this->book.createSpell(spell);
+    
+    if (spell_ptr)
+        spell_ptr->launch(target);
     return ;   
 }
