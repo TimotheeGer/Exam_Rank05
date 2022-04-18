@@ -6,13 +6,13 @@
 #    By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/24 17:39:59 by tigerber          #+#    #+#              #
-#    Updated: 2022/04/18 15:23:20 by tigerber         ###   ########.fr        #
+#    Updated: 2022/04/18 15:58:37 by tigerber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX 	= c++
 
-CXXFLAGS 	= -Wall -Wextra -Werror -fsanitize=address -g3 -std=c++98
+CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 
 EXEC 	= Spell
 

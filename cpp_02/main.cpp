@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:10:09 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/18 15:47:56 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:35:30 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,6 @@ int main()
   richard.introduce();
   richard.launchSpell("Polymorph", *wall);
   richard.launchSpell("Fireball", *wall);
+  delete fireball;
+  delete polymorph;
 }

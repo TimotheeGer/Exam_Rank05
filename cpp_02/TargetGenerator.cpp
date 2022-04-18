@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 14:46:26 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/18 15:47:39 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:13:02 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ TargetGenerator::TargetGenerator(void) { }
 
 TargetGenerator::~TargetGenerator(void) { 
 
-	for (unsigned long i = 0; i < cible.size(); i++)
-    {
-		std::cout << "cible [ " << i << " ] = " << cible[i]->getType() << std::endl;
-    }
+	// for (unsigned long i = 0; i < cible.size(); i++)
+    // {
+	// 	std::cout << "cible [ " << i << " ] = " << cible[i]->getType() << std::endl;
+    // }
     std::vector<ATarget*>::iterator itb = cible.begin();
     std::vector<ATarget*>::iterator ite = cible.end();
 
@@ -45,7 +45,7 @@ TargetGenerator::~TargetGenerator(void) {
 void TargetGenerator::learnTargetType(ATarget* target) {
 
 	if (target)
-		cible.push_back(target);
+		cible.push_back(target->clone());
 	return ;
 }
 

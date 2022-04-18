@@ -6,7 +6,7 @@
 /*   By: tigerber <tigerber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 14:17:33 by tigerber          #+#    #+#             */
-/*   Updated: 2022/04/18 15:38:14 by tigerber         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:36:26 by tigerber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ SpellBook::~SpellBook(void) {
 void SpellBook::learnSpell(ASpell* sort) {
 
 	if (sort)
-		book.push_back(sort);
+		book.push_back(sort->clone());
 	return ;
 }
 
@@ -52,7 +52,6 @@ void SpellBook::forgetSpell(std::string const & sort) {
 		{
 			delete book[i];
             book.erase(book.begin() + i);
-        	break ;
 		}
     }
 	return ;
